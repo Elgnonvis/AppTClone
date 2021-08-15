@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Content:</strong>
+</p>
+<br>
+<p>
   <%= @post.content %>
 </p>
 <br>
 
 <p>
-<a href = "<%= edit_post_path(@post) %>" class="btn btn-primary"> Edit</a>
+  <a href = "<%= edit_post_path(@post) %>" class="btn btn-primary"> Edit</a>
 </p>
 <p>
-<a href = "<%= posts_path %>" class="btn btn-primary"> Return to posts list</a>
+  <a href = "<%= posts_path %>" class="btn btn-primary"> Return to posts list</a>
 </p>

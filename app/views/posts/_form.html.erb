@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="form-group">
+    <%= form.label :content %> <br>
+    <%= form.text_area :content, placeholder: 'Your post here', class:'form-control' %>
   </div>
-  <br>
-  <div class="actions">
-    <a class="btn btn-success"> <%= form.submit %></a>
+
+  <div class="form-group">
+    <button class="btn btn-success" type="submit"> <%= form.submit %></button>
   </div>
 <% end %>
