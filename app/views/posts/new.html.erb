@@ -1,5 +1,7 @@
 <h1>New Post</h1>
-
+<br>
 <%= render 'form', post: @post %>
-
-<%= link_to 'Return to posts list', posts_path %>
+<br>
+<p>
+<a href = "<%= posts_path %>" class="btn btn-primary"> Return to posts list</a>
+</p>

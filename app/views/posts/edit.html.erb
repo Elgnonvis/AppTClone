@@ -1,6 +1,12 @@
 <h1>Editing Post</h1>
-
+<br>
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Return to Posts list', posts_path %>
+<br>
+<p>
+<a href = "<%= @posts%>" class="btn btn-primary"> Show</a>
+</p>
+
+<p>
+<a href = "<%= posts_path%>" class="btn btn-primary"> Return to Posts list</a>
+</p>
