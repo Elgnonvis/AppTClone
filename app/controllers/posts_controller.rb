@@ -1,10 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  def confirm
-    @post = Post.new(post_params)
-  end
-
   def index
     @posts = Post.all
   end
@@ -24,13 +20,17 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     respond_to do |format|
-      if @post.save
-        format.html { redirect_to posts_url, flash: {success: "Post was successfully created."} }
-        format.json { render :show, status: :created, location: @post }
+      if params[:back]
+        format.html { render :new }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+        if @post.save
+          format.html { redirect_to posts_url, flash: {success: "Post was successfully created."} }
+          format.json { render :show, status: :created, location: @post }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
+     end
     end
   end
 
@@ -46,6 +46,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def confirm
+    @post = Post.new(post_params)
+    render :new if @post.invalid?
+  end
+  
   def destroy
     @post.destroy
     respond_to do |format|
